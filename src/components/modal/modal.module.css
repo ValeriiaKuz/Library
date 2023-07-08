@@ -1,0 +1,41 @@
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 7;
+}
+.modal_wrapper{
+    padding:calc(var(--index)*2.6) ;
+    background-color: #01111c;
+}
+.close_element{
+    position: relative;
+    cursor: pointer;
+}
+.close_element::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: calc(var(--index)*2);
+    height: 2px;
+    background-color: white;
+    transform: rotate(45deg)
+}
+.close_element::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: calc(var(--index)*2);
+    height: 2px;
+    background-color: white;
+    transform: rotate(-45deg)
+}
+.modalOpen{
+    overflow: hidden;
+}

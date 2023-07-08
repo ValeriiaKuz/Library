@@ -1,0 +1,87 @@
+.layers__container{
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+}
+.layers{
+    perspective: 1000px;
+    overflow: hidden;
+}
+.layers__item{
+    position: absolute;
+    top: -3vw;
+    right: -3vw;
+    bottom: -3vw;
+    left: -3vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.layer_1{
+    background-image: url("../../images/background.jpg");
+    transform: translateZ(-20px) scale(1.06);
+}
+.layer_2{
+    background-image: url("../../images/secondplan.png");
+    transform: translateZ(50px) scale(0.8);
+}
+
+.layer_3{
+    background-image: url("../../images/main.png");
+    transform: translateZ(240px) scale(0.72);
+    background-color: #00000012;
+}
+.layer_4{
+    transform: translateZ(270px);
+    top: calc(var(--index)*4);
+    background-color: rgba(0, 0, 0, 0.07);
+}
+.layer_5{
+    background-image: url("../../images/firstplan.png");
+    transform: translateZ(340px)scale(0.65);
+}
+.layer_6{
+    background-image: url("../../images/white.png");
+    transform: translateZ(400px)scale(0.6);
+}
+.layer_5, .layer_6{
+    pointer-events: none;
+}
+.layer_4 > h1{
+    font-size: calc(var(--index)*3.0);
+    letter-spacing: calc(var(--index)*0.45);
+}
+.searchForm {
+    display: flex;
+    gap: calc(var(--index)*1);
+}
+.searchInput{
+    width: calc(var(--index)*15.0);
+    padding: calc(var(--index)*.3) calc(var(--index)*1.2);
+    background-color: rgba(0, 0, 0, 0.7);
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 1rem;
+    font-size: calc(var(--index)*.8);
+    color: white;
+    transition: 0.5s ease;
+}
+.searchInput:focus{
+    border: 2px solid rgb(14, 144, 182);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.searchButton{
+    padding: calc(var(--index)*.3) calc(var(--index)*1.2);
+    background-color: rgba(255, 255, 255, 0.53);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: calc(var(--index)*.8);
+    transition: 0.8s ease;
+}
+.searchButton:hover{
+    background-color: white;
+}

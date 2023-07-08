@@ -1,0 +1,39 @@
+.header{
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: calc(var(--index)*2.5);
+    background-color: #01111c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+font-size: calc(var(--index)*1.5);
+    letter-spacing:calc(var(--index)*1.5) ;
+}
+
+.cart{
+    position: absolute;
+    right: calc(var(--index)*1);
+    top:calc(var(--index)*0.25);
+    display: flex;
+    margin: 0;
+    list-style: none;
+    height: calc(var(--index)*2);
+    cursor: pointer;
+}
+.count{
+    position: absolute;
+    right: calc(var(--index)*1.6);
+    top:calc(var(--index)*0.1);
+    height: calc(var(--index)*1.3);
+    display: flex;
+    align-items: center;
+    background-color: #37aaff;
+    font-size:calc(var(--index)*1) ;
+    border-radius: 50%;
+    padding:calc(var(--index)*0.5) ;
+}
+
