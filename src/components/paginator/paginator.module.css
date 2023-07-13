@@ -1,0 +1,78 @@
+
+.pagination_container{
+    display: flex;
+    list-style-type: none;
+}
+.pagination_item {
+    font-size: calc(var(--index)*1);
+    padding: 0 calc(var(--index)*0.5);
+    height: calc(var(--index)*2);
+    text-align: center;
+    margin: auto calc(var(--index)*0.2);
+    color: rgba(255, 255, 255, 0.87);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 50%;
+    min-width: calc(var(--index)*2);
+    text-decoration: none;
+}
+.selected{
+    background-color: rgba(55, 170, 255, 0.7);
+}
+.pagination_item:hover.selected{
+    background-color: rgba(55, 170, 255, 0.7);}
+.pagination_item:hover.dots{
+    background-color: transparent;
+}
+.pagination_item:hover{
+    background-color: rgba(55, 170, 255, 0.3);
+    cursor: pointer;
+
+}
+.pagination_item:first-child,.pagination_item:last-child{
+    position: relative;
+}
+.left::before{
+    position: absolute;
+    top:calc(var(--index)*0.5);
+    content: '';
+    display: inline-block;
+    width: calc(var(--index)*0.5);
+    height: calc(var(--index)*0.5);
+    border-right: 0.12em solid rgb(255, 255, 254);
+    border-top: 0.12em solid rgb(255, 255, 254);
+    transform: rotate(-135deg) translate(-50%);
+}
+.right::before{
+    position: absolute;
+    top:calc(var(--index)*0.5);
+    left: 0;
+    content: '';
+    display: inline-block;
+    width: calc(var(--index)*0.5);
+    height: calc(var(--index)*0.5);
+    border-right: 0.12em solid rgb(255, 255, 254);
+    border-top: 0.12em solid rgb(255, 255, 254);
+    transform: rotate(45deg) translate(50%);
+}
+.pagination_item:hover:first-child,.pagination_item:hover:last-child{
+    background-color: transparent;
+}
+
+@media (max-width: 500px){
+    .pagination_item {
+        font-size: calc(var(--index) * 2);
+        padding: 0 calc(var(--index) * 1);
+        height: calc(var(--index) * 3);
+        margin: auto calc(var(--index) * 0.2);
+    }
+    .right::before {
+        top: calc(var(--index) * 1);
+    }
+    .left::before{
+        top: calc(var(--index) * 1);
+
+    }
+}

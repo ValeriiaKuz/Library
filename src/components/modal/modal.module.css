@@ -1,0 +1,67 @@
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 7;
+}
+.content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-grow: 1;
+}
+.modal_wrapper{
+    height: calc(var(--index) * 28);
+    width: calc(var(--index) * 40.18);
+    padding: calc(var(--index) * 1) calc(var(--index) * 2.6) calc(var(--index) * 2.6);
+    background-color: #01111c;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.close_element{
+    display: flex;
+    align-self: end;
+    left: calc(var(--index) * 1.2);
+    width: calc(var(--index)*2);
+    min-height:calc(var(--index)*2) ;
+    position: relative;
+    cursor: pointer;
+}
+.close_element::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: calc(var(--index)*2);
+    top: calc(var(--index)*1);
+    transform: translate(0, 50%) rotate(45deg);
+    background-color: white;
+
+}
+.close_element::after{
+    content: '';
+    position: absolute;
+    width: calc(var(--index)*2);
+    height: 2px;
+    top: calc(var(--index)*1);
+    background-color: white;
+    transform: translate(0, 50%) rotate(-45deg);}
+.modalOpen{
+    overflow: hidden;
+}
+@media (max-width: 500px){
+    .modal_wrapper{
+        height: calc(var(--index) * 28);
+        width: 90vw;}
+}
+@media (max-width: 380px){
+    .modal_wrapper{
+        padding: calc(var(--index) * 0.5) calc(var(--index) * 2) calc(var(--index) * 2);
+    }
+}
