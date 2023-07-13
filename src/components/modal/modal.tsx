@@ -36,8 +36,8 @@ export const Modal: FC<PropsWithChildren> = ({ children }) => {
             onClick={() => {
               navigate(location.state?.background.pathname || "/");
             }}
-          ></div>
-          {children}
+          />
+          <div className={style.content}>{children}</div>
         </div>
       </ModalOverlay>
     </>,

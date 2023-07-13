@@ -10,8 +10,10 @@
 }
 
 .title {
-font-size: calc(var(--index)*1.5);
+    font-size: calc(var(--index)*1.5);
     letter-spacing:calc(var(--index)*1.5) ;
+    color: white;
+    text-decoration: none;
 }
 
 .cart{
@@ -20,7 +22,7 @@ font-size: calc(var(--index)*1.5);
     top:calc(var(--index)*0.25);
     display: flex;
     margin: 0;
-    list-style: none;
+    color: white;
     height: calc(var(--index)*2);
     cursor: pointer;
 }
@@ -32,8 +34,12 @@ font-size: calc(var(--index)*1.5);
     display: flex;
     align-items: center;
     background-color: #37aaff;
-    font-size:calc(var(--index)*1) ;
+    font-size:calc(var(--index)*0.8) ;
+    border: 1px solid transparent;
     border-radius: 50%;
     padding:calc(var(--index)*0.5) ;
 }
+.active>.count{
+    border: 1px solid white;
 
+}

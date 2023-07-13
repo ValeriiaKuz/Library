@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { bookType } from "../types/shelf-types/shelf-types";
+import { bookForShelfType } from "../types/shelf-types/shelf-types";
 type cartInitialStateType = {
-  books: Array<bookType>;
+  books: Array<bookForShelfType>;
 };
 const initialState: cartInitialStateType = {
   books: [],
@@ -16,13 +16,16 @@ const cartSlice = createSlice({
     },
     removeBook(state, action) {
       const index = state.books.findIndex(
-        (book) => book.title === action.payload.title,
+        (book) => book.bookId === action.payload.bookId,
       );
       if (index !== -1) {
         state.books.splice(index, 1);
       }
     },
+    removeAllBooks(state) {
+      state.books = [];
+    },
   },
 });
-export const { addBook, removeBook } = cartSlice.actions;
+export const { addBook, removeBook, removeAllBooks } = cartSlice.actions;
 export default cartSlice.reducer;

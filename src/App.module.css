@@ -1,7 +1,0 @@
-
-.shelves{
-    display: flex;
-    flex-direction: column;
-    gap:calc(var(--index)*1);
-    padding:calc(var(--index)*1) ;
-}

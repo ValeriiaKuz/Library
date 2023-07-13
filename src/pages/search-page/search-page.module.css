@@ -1,0 +1,21 @@
+.content_wrapper{
+    padding-top: calc(var(--index)*4);
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.search_wrapper{
+    padding: calc(var(--index)*4) calc(var(--index)*1) calc(var(--index)*1);
+    gap: calc(var(--index)*1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form_wrapper{
+    width: calc(var(--index)*30);
+}
+.found_books{
+    display: flex;
+    flex-direction: column;
+    width: calc(var(--index)*50);
+}

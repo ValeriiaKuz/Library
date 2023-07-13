@@ -21,7 +21,7 @@
     justify-content: space-evenly;
 }
 .layer_1{
-    background-image: url("../../images/background.jpg");
+    background-image: url("../../images/background-small.jpg");
     transform: translateZ(-20px) scale(1.06);
 }
 .layer_2{
@@ -30,7 +30,7 @@
 }
 
 .layer_3{
-    background-image: url("../../images/main.png");
+    background-image: url("../../images/main-small.png");
     transform: translateZ(240px) scale(0.72);
     background-color: #00000012;
 }
@@ -54,16 +54,19 @@
     font-size: calc(var(--index)*3.0);
     letter-spacing: calc(var(--index)*0.45);
 }
+.form_wrapper{
+    width: calc(var(--index)*22.0);
+}
 .searchForm {
     display: flex;
     gap: calc(var(--index)*1);
 }
 .searchInput{
-    width: calc(var(--index)*15.0);
+    width: 100%;
     padding: calc(var(--index)*.3) calc(var(--index)*1.2);
     background-color: rgba(0, 0, 0, 0.7);
     outline: none;
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 1rem;
     font-size: calc(var(--index)*.8);
     color: white;
@@ -71,17 +74,20 @@
 }
 .searchInput:focus{
     border: 2px solid rgb(14, 144, 182);
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(0, 0, 0);
 }
 .searchButton{
+    color: white;
     padding: calc(var(--index)*.3) calc(var(--index)*1.2);
-    background-color: rgba(255, 255, 255, 0.53);
-    border: 2px solid rgba(255, 255, 255, 0.7);
+    background-color: rgba(55, 170, 255, 0.9);
+    border: none;
+    /*border: 1px solid rgba(255, 255, 255, 0.7);*/
     border-radius: 1rem;
     cursor: pointer;
     font-size: calc(var(--index)*.8);
     transition: 0.8s ease;
 }
 .searchButton:hover{
+    color: #37aaff;
     background-color: white;
 }

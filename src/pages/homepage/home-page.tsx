@@ -5,6 +5,8 @@ import { BookShelf } from "../../components/book-shelf/book-shelf";
 import { Shelf } from "../../servicies/types/shelf-types/shelf-types";
 import { useDispatch, useSelector } from "../../servicies/hooks/hooks";
 import { fetchShelf } from "../../servicies/actions/shelf-action";
+import { Loader } from "../../components/Loader/loader";
+import { Error } from "../../components/error/error";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -33,6 +35,12 @@ export const HomePage = () => {
     document.documentElement.style.setProperty("--move-y", `${moveY}deg`);
   }, [moveX, moveY]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+  if (isError) {
+    return <Error />;
+  }
   return (
     <>
       <section className={style.layers} onMouseMove={handleMouseMove}>
@@ -41,13 +49,15 @@ export const HomePage = () => {
           <div className={`${style.layers__item} ${style.layer_2}`}></div>
           <div className={`${style.layers__item} ${style.layer_3}`}></div>
           <div className={`${style.layers__item} ${style.layer_4}`}>
-            <SearchForm />
+            <div className={style.form_wrapper}>
+              <SearchForm />
+            </div>
           </div>
           <div className={`${style.layers__item} ${style.layer_5}`}></div>
           <div className={`${style.layers__item} ${style.layer_6}`}></div>
         </div>
       </section>
-      <main className={style.shelves}>
+      <main>
         <BookShelf
           shelfTitle={Shelf["Мировая классика"]}
           books={worldClassicShelf}

@@ -1,11 +1,25 @@
 import style from "../../pages/homepage/home-page.module.css";
-import React, { FormEvent, useRef, useState } from "react";
-
-export const SearchForm = () => {
+import React, { FC, FormEvent, useRef, useState } from "react";
+import { useDispatch } from "../../servicies/hooks/hooks";
+import { useNavigate } from "react-router-dom";
+import { searchRequest } from "../../servicies/slices/search-slice";
+type searchFormPropsType = {
+  handlePageChange?: (page: number) => void;
+};
+export const SearchForm: FC<searchFormPropsType> = ({ handlePageChange }) => {
   const [searchInput, setSearchInput] = useState("");
   const searchRef = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onFormSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (handlePageChange) {
+      handlePageChange(1);
+    }
+    if (searchInput.length > 0) {
+      dispatch(searchRequest(searchInput));
+      navigate("/search/1");
+    }
   };
   return (
     <form className={style.searchForm} onSubmit={onFormSubmit}>
@@ -20,7 +34,7 @@ export const SearchForm = () => {
         placeholder={"Введите название книги"}
       />
       <button className={style.searchButton} type={"submit"}>
-        Искать
+        Поиск
       </button>
     </form>
   );

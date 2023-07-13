@@ -25,7 +25,7 @@
     border-radius: 1rem;
 }
 .card:hover{
-    border: 2px solid rgba(53, 246, 231, 0.53);
+    border: 2px solid rgba(55, 170, 255, 0.5);
     border-radius: 1rem;
     cursor: pointer;
 }
