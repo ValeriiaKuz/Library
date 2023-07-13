@@ -19,3 +19,13 @@
     flex-direction: column;
     width: calc(var(--index)*50);
 }
+@media (max-width: 850px){
+    .found_books{
+        width: 92vw;
+    }
+}
+@media (max-width: 500px){
+    .search_wrapper{
+        padding: calc(var(--index)*5) calc(var(--index)*1) calc(var(--index)*1);
+    }
+}

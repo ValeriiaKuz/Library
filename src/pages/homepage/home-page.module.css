@@ -81,7 +81,6 @@
     padding: calc(var(--index)*.3) calc(var(--index)*1.2);
     background-color: rgba(55, 170, 255, 0.9);
     border: none;
-    /*border: 1px solid rgba(255, 255, 255, 0.7);*/
     border-radius: 1rem;
     cursor: pointer;
     font-size: calc(var(--index)*.8);
@@ -90,4 +89,20 @@
 .searchButton:hover{
     color: #37aaff;
     background-color: white;
+}
+@media (max-width: 500px){
+    .searchForm{
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--index)*1.6);
+        align-items: center;
+    }
+    .searchInput {
+        font-size: calc(var(--index) * 1);
+    }
+    .searchButton{
+        max-width: calc(var(--index)*6);
+        font-size: calc(var(--index)*1.1);
+
+    }
 }

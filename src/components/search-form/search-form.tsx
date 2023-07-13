@@ -5,9 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { searchRequest } from "../../servicies/slices/search-slice";
 type searchFormPropsType = {
   handlePageChange?: (page: number) => void;
+  lastSearchRequest?: string;
 };
-export const SearchForm: FC<searchFormPropsType> = ({ handlePageChange }) => {
-  const [searchInput, setSearchInput] = useState("");
+export const SearchForm: FC<searchFormPropsType> = ({
+  handlePageChange,
+  lastSearchRequest = "",
+}) => {
+  const [searchInput, setSearchInput] = useState(lastSearchRequest);
   const searchRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();

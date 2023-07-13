@@ -55,3 +55,8 @@
 .modalOpen{
     overflow: hidden;
 }
+@media (max-width: 500px){
+    .modal_wrapper{
+        height: calc(var(--index) * 28);
+        width: 90vw;}
+}

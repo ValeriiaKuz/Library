@@ -43,3 +43,22 @@
     border: 1px solid white;
 
 }
+@media (max-width: 500px){
+    .header{
+        height: calc(var(--index)*4);
+    }
+    .title {
+        font-size: calc(var(--index)*2);
+        letter-spacing:calc(var(--index)*1.7) ;
+    }
+    .cart{
+        height: calc(var(--index)*3.5);
+    }
+    .count{
+        right: calc(var(--index)*2.2);
+        top:calc(var(--index)*0.1);
+        height: calc(var(--index)*2.4);
+        font-size:calc(var(--index)*1.2) ;
+        padding:calc(var(--index)*0.8) ;
+    }
+}

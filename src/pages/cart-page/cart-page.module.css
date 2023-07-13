@@ -34,6 +34,7 @@
 }
 .cover{
     width:calc(var(--index)*4.3) ;
+    height: fit-content;
 }
 .book_info{
     display: flex;
@@ -75,4 +76,9 @@
     outline: none;
     border-radius: 2rem;
     cursor: pointer;
+}
+@media (max-width: 500px){
+    .cart {
+        padding: calc(var(--index) * 5) calc(var(--index) * 3) calc(var(--index) * 1);
+    }
 }

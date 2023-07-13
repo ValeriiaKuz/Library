@@ -58,7 +58,10 @@ export const SearchPage = () => {
   return (
     <div className={style.search_wrapper}>
       <div className={style.form_wrapper}>
-        <SearchForm handlePageChange={handlePageChange} />
+        <SearchForm
+          handlePageChange={handlePageChange}
+          lastSearchRequest={searchRequest}
+        />
       </div>
       {books.length > 0 && (
         <div className={style.found_books}>{foundBooks}</div>

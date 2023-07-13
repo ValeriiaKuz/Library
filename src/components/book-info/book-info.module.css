@@ -57,3 +57,16 @@
     justify-content: space-between;
 }
 
+@media (max-width: 500px){
+    .book_info {
+        width: 40vw;
+    }
+}
+@media (max-width: 380px){
+    .book_container{
+        gap:calc(var(--index)*2);
+    }
+    .pages_and_cart>div{
+        max-width: calc(var(--index)*6);
+    }
+}

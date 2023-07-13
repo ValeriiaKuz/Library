@@ -60,3 +60,19 @@
 .pagination_item:hover:first-child,.pagination_item:hover:last-child{
     background-color: transparent;
 }
+
+@media (max-width: 500px){
+    .pagination_item {
+        font-size: calc(var(--index) * 2);
+        padding: 0 calc(var(--index) * 1);
+        height: calc(var(--index) * 3);
+        margin: auto calc(var(--index) * 0.2);
+    }
+    .right::before {
+        top: calc(var(--index) * 1);
+    }
+    .left::before{
+        top: calc(var(--index) * 1);
+
+    }
+}

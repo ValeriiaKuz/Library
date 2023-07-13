@@ -41,3 +41,20 @@
 .img_container>img{
     height: calc(var(--index)*9);
 }
+@media (max-width: 750px){
+    .shelf{
+        flex-wrap: wrap;
+    }
+    .card{
+        width: 23vw;
+    }
+    .img_container>img{
+        width: 100%;
+        height: auto;
+    }
+    .card:hover{
+        border: 2px solid rgba(55, 170, 255, 0);
+        border-radius: 1rem;
+        cursor: none;
+    }
+}
