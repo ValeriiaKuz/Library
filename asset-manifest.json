@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Library/static/css/main.db7678f7.css",
+    "main.js": "/Library/static/js/main.4a71ce51.js",
+    "static/js/787.798387e2.chunk.js": "/Library/static/js/787.798387e2.chunk.js",
+    "static/media/firstplan.png": "/Library/static/media/firstplan.4e0b232fe283c02f1dcd.png",
+    "static/media/secondplan.png": "/Library/static/media/secondplan.6a3051f6b94563b58977.png",
+    "static/media/white.png": "/Library/static/media/white.6e2cd85f93dc454fc61f.png",
+    "static/media/book-error.png": "/Library/static/media/book-error.a1c9012e36047aa1a3d3.png",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/Library/static/media/Montserrat-VariableFont_wght.3faa3eef13649db02044.ttf",
+    "static/media/background-small.jpg": "/Library/static/media/background-small.532ccfd2c03a102fd5d5.jpg",
+    "static/media/cover.png": "/Library/static/media/cover.74d36c2110ba08020b8b.png",
+    "static/media/main-small.png": "/Library/static/media/main-small.c3aa1f1f2bfa92f22b74.png",
+    "static/media/cat.png": "/Library/static/media/cat.81b5ed3063c0433dfbaa.png",
+    "static/media/books-logo.svg": "/Library/static/media/books-logo.f19b3f93471c9f63889c4103e46cf953.svg",
+    "static/media/added-book.svg": "/Library/static/media/added-book.7a5327c1a2a418692728c274aa39ac08.svg",
+    "static/media/add-book.svg": "/Library/static/media/add-book.b5572c01bc142e6fe583aba854647d8b.svg",
+    "index.html": "/Library/index.html",
+    "main.db7678f7.css.map": "/Library/static/css/main.db7678f7.css.map",
+    "main.4a71ce51.js.map": "/Library/static/js/main.4a71ce51.js.map",
+    "787.798387e2.chunk.js.map": "/Library/static/js/787.798387e2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db7678f7.css",
+    "static/js/main.4a71ce51.js"
+  ]
+}
