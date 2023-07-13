@@ -60,3 +60,8 @@
         height: calc(var(--index) * 28);
         width: 90vw;}
 }
+@media (max-width: 380px){
+    .modal_wrapper{
+        padding: calc(var(--index) * 0.5) calc(var(--index) * 2) calc(var(--index) * 2);
+    }
+}

@@ -98,11 +98,13 @@
         align-items: center;
     }
     .searchInput {
-        font-size: calc(var(--index) * 1);
+        font-size: calc(var(--index) * 1.2);
+        padding: calc(var(--index)*.6) calc(var(--index)*1.2);
+
     }
     .searchButton{
         max-width: calc(var(--index)*6);
         font-size: calc(var(--index)*1.1);
-
+        padding: calc(var(--index)*.6) calc(var(--index)*1.4);
     }
 }

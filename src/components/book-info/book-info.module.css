@@ -63,10 +63,18 @@
     }
 }
 @media (max-width: 380px){
+    .book_cover>img{
+        height: calc(var(--index)*17);
+        max-width: calc(var(--index)*12);
+    }
     .book_container{
         gap:calc(var(--index)*2);
     }
     .pages_and_cart>div{
         max-width: calc(var(--index)*6);
+    }
+    .description>p{
+        overflow: scroll;
+        max-height: calc(var(--index)*10.5);
     }
 }

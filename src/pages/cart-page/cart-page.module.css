@@ -34,7 +34,6 @@
 }
 .cover{
     width:calc(var(--index)*4.3) ;
-    height: fit-content;
 }
 .book_info{
     display: flex;
