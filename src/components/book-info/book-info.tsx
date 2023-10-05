@@ -1,8 +1,6 @@
 import { Params, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "../../servicies/hooks/hooks";
 import { useEffect, useMemo, useState } from "react";
-import { fetchBook } from "../../servicies/actions/book-action";
-import { resetBook } from "../../servicies/slices/book-slice";
 import style from "./book-info.module.css";
 import addBookSvg from "../../images/add-book.svg";
 import addedBookSvg from "../../images/added-book.svg";
@@ -11,29 +9,26 @@ import { bookForShelfType } from "../../servicies/types/shelf-types/shelf-types"
 import { Loader } from "../Loader/loader";
 import cover from "../../images/cover.png";
 import { Error } from "../error/error";
+import { useGetBookByIdQuery } from "../../servicies/RTK-query/create-api/create-api";
 
 export const BookInfo = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const [book, setBook] = useState<any>(null);
   let { id }: Readonly<Params> = useParams<string>();
   const bookCart: bookForShelfType | undefined = useMemo(
     () => location.state?.bookCart,
     [location.state],
   );
+  const { data: bookFromStore, isLoading, isError } = useGetBookByIdQuery(id!);
   useEffect(() => {
-    if (id && !bookCart) {
-      dispatch(fetchBook(id));
+    if (bookCart) {
+      setBook(bookCart.bookInfo);
     }
-    return () => {
-      dispatch(resetBook());
-    };
-  }, [id, dispatch,bookCart]);
-
-  const { isLoading, isError, error } = useSelector(
-    (state) => state.bookReducer,
-  );
-  const bookFromStore = useSelector((state) => state.bookReducer.book);
-  const book = bookCart ? bookCart.bookInfo : bookFromStore;
+    if (bookFromStore) {
+      setBook(bookFromStore.volumeInfo);
+    }
+  }, [bookCart, bookFromStore]);
   const addedBooks = useSelector((state) => state.cartReducer.books);
   const isAdded = useMemo(() => {
     if (bookCart) {
@@ -65,7 +60,7 @@ export const BookInfo = () => {
     [book],
   );
   if (isError) {
-    return <Error message={error?.message} />;
+    return <Error />;
   }
   if (!id || !book) {
     return null;

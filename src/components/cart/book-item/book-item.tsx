@@ -9,11 +9,11 @@ export const BookItem: FC<{ book: bookForShelfType }> = ({ book }) => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const imgSrc = book.bookInfo.imageLinks
-    ? location.pathname.startsWith("/search")
-      ? book.bookInfo.imageLinks?.smallThumbnail
-      : book.bookInfo.imageLinks.small
-    : cover;
+  const imgSrc =
+    book.bookInfo.imageLinks?.smallThumbnail ||
+    book.bookInfo.imageLinks?.small ||
+    cover;
+
   const stateForLink = location.pathname.startsWith("/search")
     ? { background: location }
     : { bookCart: book, background: location };

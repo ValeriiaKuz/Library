@@ -1,38 +1,41 @@
 import { SearchForm } from "../../components/search-form/search-form";
-import { useDispatch, useSelector } from "../../servicies/hooks/hooks";
+import { useSelector } from "../../servicies/hooks/hooks";
 import { Loader } from "../../components/Loader/loader";
 import { Paginator } from "../../components/paginator/paginator";
 import { useEffect, useState } from "react";
 import style from "./search-page.module.css";
 import { useParams } from "react-router-dom";
-import { fetchSearchBooks } from "../../servicies/actions/search-action";
 import { BookItem } from "../../components/cart/book-item/book-item";
 import { ErrorWithPagination } from "../../components/error/error-with-pagination";
 import { Error } from "../../components/error/error";
+import { useSearchBookQuery } from "../../servicies/RTK-query/create-api/create-api";
+import { bookForShelfType } from "../../servicies/types/shelf-types/shelf-types";
 
 export const SearchPage = () => {
-  const dispatch = useDispatch();
+  const [books, setBooks] = useState<bookForShelfType[]>([]);
   let { page } = useParams();
-  const {
-    isLoading,
-    isError,
-    isErrorWithPagination,
-    books,
-    totalItems,
-    searchRequest,
-    error,
-  } = useSelector((state) => state.searchReducer);
+  const { searchRequest } = useSelector((state) => state.searchReducer);
   const [currentPage, setCurrentPage] = useState<number>(page ? +page : 1);
+
+  const {
+    data: searchedBooks,
+    isError,
+    isLoading,
+  } = useSearchBookQuery({
+    book: searchRequest,
+    startIndex: (currentPage - 1) * 10,
+  });
   useEffect(() => {
-    if (searchRequest) {
-      dispatch(
-        fetchSearchBooks({
-          book: searchRequest,
-          startIndex: (currentPage - 1) * 10,
-        }),
+    if (searchedBooks && searchedBooks.items) {
+      setBooks(
+        searchedBooks.items.map((book: { volumeInfo: any; id: string }) => ({
+          bookInfo: book.volumeInfo,
+          bookId: book.id,
+        })),
       );
     }
-  }, [currentPage, searchRequest, dispatch]);
+  }, [searchedBooks]);
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
@@ -40,7 +43,7 @@ export const SearchPage = () => {
     return <BookItem book={book} key={book.bookId} />;
   });
 
-  if (isLoading) {
+  if (isLoading || !searchedBooks) {
     return (
       <div className={style.content_wrapper}>
         <Loader />
@@ -50,7 +53,7 @@ export const SearchPage = () => {
   if (isError) {
     return (
       <div className={style.content_wrapper}>
-        <Error message={error?.message} />
+        <Error />
       </div>
     );
   }
@@ -66,16 +69,16 @@ export const SearchPage = () => {
       {books.length > 0 && (
         <div className={style.found_books}>{foundBooks}</div>
       )}
-      {isErrorWithPagination && <ErrorWithPagination />}
-      {books.length > 0 && totalItems && (
+      {searchedBooks && !searchedBooks.items && <ErrorWithPagination />}
+      {books.length > 0 && searchedBooks.totalItems && (
         <Paginator
-          totalItems={totalItems}
+          totalItems={searchedBooks.totalItems}
           currentPage={currentPage}
           pageSize={10}
           onPageChange={handlePageChange}
         />
       )}
-      {!totalItems && <div> Ни одной книги не найдено</div>}
+      {!searchedBooks.totalItems && <div> Ни одной книги не найдено</div>}
     </div>
   );
 };
